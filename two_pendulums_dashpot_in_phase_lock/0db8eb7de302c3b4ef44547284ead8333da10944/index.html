@@ -1,0 +1,54 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>two_pendulums_dashpot_in_phase_lock</title><style>body{font:16px/1.65 system-ui,-apple-system,sans-serif;color:#173045;background:#f3f5f7;margin:0}
+main{max-width:1180px;margin:auto;padding:26px}h1{font-size:26px;overflow-wrap:anywhere}h2{margin-top:34px}
+a{color:#0757b4}code{overflow-wrap:anywhere}section,article{background:#fff;border:1px solid #d6dde4;padding:18px;border-radius:12px;margin:18px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.vid{margin:0;min-width:0}video{width:100%;aspect-ratio:1;background:#000}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #ccd5df;padding:7px;text-align:left}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef1f4;padding:12px;border-radius:8px}
+.small{color:#5a6b7b;font-size:13px}.pill{display:inline-block;background:#e7f0ff;border-radius:999px;padding:2px 10px;margin:2px;font-size:13px}</style><main><h1>two_pendulums_dashpot_in_phase_lock</h1>
+<p><span class="pill">generator two_pendulums_dashpot_in_phase_lock</span><span class="pill">head 0db8eb7de302c3b4ef44547284ead8333da10944</span>
+<span class="pill">native 2048x2048 · 24 fps · 120 frames · 5 s · H.264</span><span class="pill">violating-object-only mask</span></p>
+<p><strong>Pull request</strong>: <a href="https://github.com/hipo-dev/counterfactual-data/pull/799">https://github.com/hipo-dev/counterfactual-data/pull/799</a> · <strong>commit</strong>: <code>0db8eb7de302c3b4ef44547284ead8333da10944</code></p>
+<p><strong>Operator</strong>: <code>relative_damping_removed</code> · <strong>scene params</strong>:
+<pre>{
+ &quot;appearance&quot;: 0,
+ &quot;bob_inertia&quot;: 0.0013012747347225242,
+ &quot;bob_mass&quot;: 0.044444,
+ &quot;bob_radius&quot;: 0.038,
+ &quot;camera_elevation_ratio&quot;: 0.22,
+ &quot;coupling_rate&quot;: 2.677778,
+ &quot;crossbar_z&quot;: 1.08,
+ &quot;dashpot_damping&quot;: 0.059505582716,
+ &quot;escapement_impulse&quot;: 0.5950726431192837,
+ &quot;gravity&quot;: 9.81,
+ &quot;intervention_frame&quot;: 15,
+ &quot;model&quot;: &quot;Reduced two-pendulum model, authored per frame. Each pendulum is a point bob of mass m on a rigid rod of length L swinging in the vertical plane about a fixed pivot, with a viscous pivot torque -gamma*theta_dot, where gamma = 2*zeta*I*omega0 with I = m L^2 and omega0 = sqrt(g/L). A clock escapement delivers a fixed angular impulse eps in the direction of motion at every upward vertical crossing, so each pendulum settles at a steady amplitude instead of dying away. The two bobs are joined by a dashpot of damping coefficient c acting on their relative horizontal velocity, so the coupling contributes +c/m * (cos th2*th2&#x27; - cos th1*th1&#x27;) * cos th1 to th1&#x27;&#x27; and the opposite term to th2&#x27;&#x27;. That coupling touches only the relative motion, so it removes energy from the difference mode while leaving the common mode alone; the difference mode therefore decays and the two bobs lock in phase. The counterfactual sets the coupling coefficient to zero from one declared frame onward: the dashpot is still drawn and still moves, but it no longer damps the relative motion, so the phase difference stops shrinking and stays where it was. The model is an authored reduced state program; it is not a rigid-body solver and does not claim to be one. The damper is modelled as acting along the horizontal; the drawn link follows the two bobs exactly.&quot;,
+ &quot;omega0&quot;: 7.571737321066065,
+ &quot;phase_offset_deg&quot;: 106.666667,
+ &quot;pivot_damping&quot;: 0.0003941164189543552,
+ &quot;pivot_housing_h&quot;: 0.125,
+ &quot;pivot_separation&quot;: 0.493333,
+ &quot;pivot_z&quot;: 0.92,
+ &quot;release_angle&quot;: 0.5003277247228053,
+ &quot;rod_length&quot;: 0.171111,
+ &quot;solver_steps_per_frame&quot;: 240,
+ &quot;swing_amplitude_deg&quot;: 28.666667,
+ &quot;time_scale&quot;: 1.0,
+ &quot;view&quot;: 0
+}</pre></p>
+<h2>Rendered cases</h2><section><h3>Case 42</h3><div class="grid"><figure class="vid"><figcaption><strong>True</strong></figcaption><video id="v42-true" controls playsinline muted preload="metadata"><source src="media/42-true.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Counterfactual</strong></figcaption><video id="v42-counterfactual" controls playsinline muted preload="metadata" poster="poster-42.png"><source src="media/42-counterfactual.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Mask</strong></figcaption><video id="v42-mask" controls playsinline muted preload="metadata"><source src="media/42-mask.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Overlay</strong></figcaption><video id="v42-mask_overlay" controls playsinline muted preload="metadata"><source src="media/42-mask_overlay.mp4" type="video/mp4"></video><small>seed 42</small></figure></div>
+<p><strong>True prompt</strong><br>Two clock pendulums of equal length hang side by side from a common crossbar, and a small dashpot links their bobs. The two bobs start far out of step. As the dashpot damps their relative motion they draw together, and by the end of the clip the two bobs swing side by side in the same rhythm, staying level with one another.</p>
+<p><strong>Counterfactual prompt</strong><br>Two clock pendulums of equal length hang side by side from a common crossbar, and a small dashpot links their bobs. The two bobs keep a large fixed offset from each other for the whole clip: they never line up and never fall into the same rhythm, even though the dashpot between them is still moving as they swing.</p>
+<p class="small">decoded audit: first changed frame 15, mask start 15,
+evidence frame 35, exact prefix True, strict binary mask True,
+overlay matches counterfactual outside the mask True.</p></section><section><h3>Case 98</h3><div class="grid"><figure class="vid"><figcaption><strong>True</strong></figcaption><video id="v98-true" controls playsinline muted preload="metadata"><source src="media/98-true.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Counterfactual</strong></figcaption><video id="v98-counterfactual" controls playsinline muted preload="metadata" poster="poster-98.png"><source src="media/98-counterfactual.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Mask</strong></figcaption><video id="v98-mask" controls playsinline muted preload="metadata"><source src="media/98-mask.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Overlay</strong></figcaption><video id="v98-mask_overlay" controls playsinline muted preload="metadata"><source src="media/98-mask_overlay.mp4" type="video/mp4"></video><small>seed 98</small></figure></div>
+<p><strong>True prompt</strong><br>Two clock pendulums of equal length hang side by side from a common crossbar, and a small dashpot links their bobs. The two bobs start far out of step. As the dashpot damps their relative motion they draw together, and by the end of the clip the two bobs swing side by side in the same rhythm, staying level with one another.</p>
+<p><strong>Counterfactual prompt</strong><br>Two clock pendulums of equal length hang side by side from a common crossbar, and a small dashpot links their bobs. The two bobs keep a large fixed offset from each other for the whole clip: they never line up and never fall into the same rhythm, even though the dashpot between them is still moving as they swing.</p>
+<p class="small">decoded audit: first changed frame 15, mask start 15,
+evidence frame 59, exact prefix True, strict binary mask True,
+overlay matches counterfactual outside the mask True.</p></section>
+<h2>Case summary</h2><table><tr><th>seed</th><th>operator</th><th>first changed</th><th>mask start</th><th>evidence</th><th>decoded audit</th><th>output</th></tr><tr><td>42</td><td>relative_damping_removed</td><td>15</td><td>15</td><td>35</td><td>PASS</td><td>2048x2048 / 24fps / 120f</td></tr><tr><td>98</td><td>relative_damping_removed</td><td>15</td><td>15</td><td>59</td><td>PASS</td><td>2048x2048 / 24fps / 120f</td></tr></table>
+<h2>Contract</h2>
+<p>True and Counterfactual are produced by one declared operator applied once at a single intervention frame.
+Every decoded frame before the intervention frame is exactly equal. The mask contains only the visible pixels of the
+violating object and never a shadow. Physical time equals video time; the solver steps per recorded frame and the
+internal time step are recorded in each case metadata.</p></main></html>
