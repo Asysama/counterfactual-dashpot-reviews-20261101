@@ -8,7 +8,8 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef1f4;padding:12px;
 <p><span class="pill">generator two_pendulums_dashpot_in_phase_lock</span><span class="pill">head 0db8eb7de302c3b4ef44547284ead8333da10944</span>
 <span class="pill">native 2048x2048 · 24 fps · 120 frames · 5 s · H.264</span><span class="pill">violating-object-only mask</span></p>
 <p><strong>Pull request</strong>: <a href="https://github.com/hipo-dev/counterfactual-data/pull/799">https://github.com/hipo-dev/counterfactual-data/pull/799</a> · <strong>commit</strong>: <code>0db8eb7de302c3b4ef44547284ead8333da10944</code></p>
-<p><strong>Operator</strong>: <code>relative_damping_removed</code> · <strong>scene params</strong>:
+<p><strong>Operator</strong>: <code>relative_damping_removed</code> · <strong>violating objects</strong>:
+<code>the left pendulum bob, the right pendulum bob</code> · <strong>scene params</strong>:
 <pre>{
  &quot;appearance&quot;: 0,
  &quot;bob_inertia&quot;: 0.0013012747347225242,
@@ -34,7 +35,10 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef1f4;padding:12px;
  &quot;swing_amplitude_deg&quot;: 28.666667,
  &quot;time_scale&quot;: 1.0,
  &quot;view&quot;: 0
-}</pre></p>
+}</pre>
+<p><strong>Timebase</strong>: physical seconds per video second <code>1.0</code>,
+physical dt <code>0.041666666666666664</code>, outer steps per recorded frame <code>1</code>,
+internal substeps <code>240</code>.</p>
 <h2>Rendered cases</h2><section><h3>Case 42</h3><div class="grid"><figure class="vid"><figcaption><strong>True</strong></figcaption><video id="v42-true" controls playsinline muted preload="metadata"><source src="media/42-true.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Counterfactual</strong></figcaption><video id="v42-counterfactual" controls playsinline muted preload="metadata" poster="poster-42.png"><source src="media/42-counterfactual.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Mask</strong></figcaption><video id="v42-mask" controls playsinline muted preload="metadata"><source src="media/42-mask.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Overlay</strong></figcaption><video id="v42-mask_overlay" controls playsinline muted preload="metadata"><source src="media/42-mask_overlay.mp4" type="video/mp4"></video><small>seed 42</small></figure></div>
 <p><strong>True prompt</strong><br>Two clock pendulums of equal length hang side by side from a common crossbar, and a small dashpot links their bobs. The two bobs start far out of step. As the dashpot damps their relative motion they draw together, and by the end of the clip the two bobs swing side by side in the same rhythm, staying level with one another.</p>
 <p><strong>Counterfactual prompt</strong><br>Two clock pendulums of equal length hang side by side from a common crossbar, and a small dashpot links their bobs. The two bobs keep a large fixed offset from each other for the whole clip: they never line up and never fall into the same rhythm, even though the dashpot between them is still moving as they swing.</p>
@@ -50,5 +54,5 @@ overlay matches counterfactual outside the mask True.</p></section>
 <h2>Contract</h2>
 <p>True and Counterfactual are produced by one declared operator applied once at a single intervention frame.
 Every decoded frame before the intervention frame is exactly equal. The mask contains only the visible pixels of the
-violating object and never a shadow. Physical time equals video time; the solver steps per recorded frame and the
+violating object and never a shadow. The physical time base, the solver steps per recorded frame and the
 internal time step are recorded in each case metadata.</p></main></html>
