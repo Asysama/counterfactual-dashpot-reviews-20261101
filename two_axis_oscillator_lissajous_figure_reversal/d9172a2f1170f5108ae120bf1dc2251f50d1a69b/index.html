@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>two_axis_oscillator_lissajous_figure_reversal</title><style>body{font:16px/1.65 system-ui,-apple-system,sans-serif;color:#173045;background:#f3f5f7;margin:0}
+main{max-width:1180px;margin:auto;padding:26px}h1{font-size:26px;overflow-wrap:anywhere}h2{margin-top:34px}
+a{color:#0757b4}code{overflow-wrap:anywhere}section,article{background:#fff;border:1px solid #d6dde4;padding:18px;border-radius:12px;margin:18px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.vid{margin:0;min-width:0}video{width:100%;aspect-ratio:1;background:#000}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #ccd5df;padding:7px;text-align:left}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef1f4;padding:12px;border-radius:8px}
+.small{color:#5a6b7b;font-size:13px}.pill{display:inline-block;background:#e7f0ff;border-radius:999px;padding:2px 10px;margin:2px;font-size:13px}</style><main><h1>two_axis_oscillator_lissajous_figure_reversal</h1>
+<p><span class="pill">generator two_axis_oscillator_lissajous_figure_reversal</span><span class="pill">head d9172a2f1170f5108ae120bf1dc2251f50d1a69b</span>
+<span class="pill">native 2048x2048 · 24 fps · 120 frames · 5 s · H.264</span><span class="pill">violating-object-only mask</span></p>
+<p><strong>Pull request</strong>: <a href="https://github.com/hipo-dev/counterfactual-data/pull/800">https://github.com/hipo-dev/counterfactual-data/pull/800</a> · <strong>commit</strong>: <code>d9172a2f1170f5108ae120bf1dc2251f50d1a69b</code></p>
+<p><strong>Operator</strong>: <code>x_axis_damped_out</code> · <strong>violating objects</strong>:
+<code>the tracer tip, the tracer tip marker</code> · <strong>scene params</strong>:
+<pre>{
+ &quot;appearance&quot;: 0,
+ &quot;camera_elevation_ratio&quot;: 0.85,
+ &quot;frequency_ratio&quot;: 1.466667,
+ &quot;gravity&quot;: 9.81,
+ &quot;intervention_frame&quot;: 24,
+ &quot;model&quot;: &quot;Reduced two-axis oscillator model, authored per frame.  The tracer head is a crossed-slider mechanism: a carriage rides on a round x rail and carries a round y rail, and a second carriage rides on that y rail.  The tip is fixed to the second carriage, so its position is exactly (x(t), y(t)) and the two axes are mechanically independent.  Each axis is a damped harmonic oscillator, x&#x27;&#x27; = -omega_x^2 x - 2 zeta_x omega_x x&#x27; and the same for y, with omega_x = sqrt(k_x / m_x) and omega_y = sqrt(k_y / m_y).  The sampled stiffnesses and masses give omega_x / omega_y = 3/2, so the tip traces a closed three-by-two rosette.  The counterfactual multiplies the x axis&#x27;s damping by a large factor from one declared frame onward: the horizontal swing then decays to nothing within about a second while the y oscillation is untouched, and the traced path collapses into a straight line along y.  The model is an authored reduced state program; it is not a contact solver and does not claim to be one.&quot;,
+ &quot;omega_x&quot;: 3.8704430288685674,
+ &quot;omega_y&quot;: 2.638937829015426,
+ &quot;phase_offset_deg&quot;: 26.666667,
+ &quot;rail_height&quot;: 0.3,
+ &quot;rail_span&quot;: 0.344444,
+ &quot;solver_steps_per_frame&quot;: 240,
+ &quot;spring_radius&quot;: 0.024,
+ &quot;spring_wire&quot;: 0.005,
+ &quot;time_scale&quot;: 1.0,
+ &quot;tip_height&quot;: 0.115,
+ &quot;view&quot;: 0,
+ &quot;x_amplitude&quot;: 0.062222,
+ &quot;x_carriage_width&quot;: 0.075,
+ &quot;x_damping&quot;: 0.010222,
+ &quot;x_extra_damping&quot;: 0.45,
+ &quot;y_amplitude&quot;: 0.034,
+ &quot;y_carriage_length&quot;: 0.105,
+ &quot;y_damping&quot;: 0.008
+}</pre>
+<p><strong>Timebase</strong>: physical seconds per video second <code>1.0</code>,
+physical dt <code>0.041666666666666664</code>, outer steps per recorded frame <code>1</code>,
+internal substeps <code>240</code>.</p>
+<h2>Rendered cases</h2><section><h3>Case 42</h3><div class="grid"><figure class="vid"><figcaption><strong>True</strong></figcaption><video id="v42-true" controls playsinline muted preload="metadata"><source src="media/42-true.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Counterfactual</strong></figcaption><video id="v42-counterfactual" controls playsinline muted preload="metadata"><source src="media/42-counterfactual.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Mask</strong></figcaption><video id="v42-mask" controls playsinline muted preload="metadata"><source src="media/42-mask.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Overlay</strong></figcaption><video id="v42-mask_overlay" controls playsinline muted preload="metadata"><source src="media/42-mask_overlay.mp4" type="video/mp4"></video><small>seed 42</small></figure></div>
+<p><strong>True prompt</strong><br>A marked tip on a two-axis carriage oscillates along x and along y at the same time, with the x swing about one and a half times faster than the y swing. The tip traces a closed three-lobed figure over the same path again and again.</p>
+<p><strong>Counterfactual prompt</strong><br>A marked tip on a two-axis carriage oscillates along x and along y at the same time, with the x swing about one and a half times faster than the y swing. Halfway through the clip the x swing dies away, so from then on the tip only moves back and forth along y and traces a straight line instead of the closed figure.</p>
+<p class="small">decoded audit: first changed frame 24, mask start 24,
+evidence frame 50, exact prefix True, strict binary mask True,
+overlay matches counterfactual outside the mask True.</p></section><section><h3>Case 98</h3><div class="grid"><figure class="vid"><figcaption><strong>True</strong></figcaption><video id="v98-true" controls playsinline muted preload="metadata"><source src="media/98-true.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Counterfactual</strong></figcaption><video id="v98-counterfactual" controls playsinline muted preload="metadata"><source src="media/98-counterfactual.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Mask</strong></figcaption><video id="v98-mask" controls playsinline muted preload="metadata"><source src="media/98-mask.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Overlay</strong></figcaption><video id="v98-mask_overlay" controls playsinline muted preload="metadata"><source src="media/98-mask_overlay.mp4" type="video/mp4"></video><small>seed 98</small></figure></div>
+<p><strong>True prompt</strong><br>A marked tip on a two-axis carriage oscillates along x and along y at the same time, with the x swing about one and a half times faster than the y swing. The tip traces a closed three-lobed figure over the same path again and again.</p>
+<p><strong>Counterfactual prompt</strong><br>A marked tip on a two-axis carriage oscillates along x and along y at the same time, with the x swing about one and a half times faster than the y swing. Halfway through the clip the x swing dies away, so from then on the tip only moves back and forth along y and traces a straight line instead of the closed figure.</p>
+<p class="small">decoded audit: first changed frame 24, mask start 24,
+evidence frame 48, exact prefix True, strict binary mask True,
+overlay matches counterfactual outside the mask True.</p></section>
+<h2>Case summary</h2><table><tr><th>seed</th><th>operator</th><th>first changed</th><th>mask start</th><th>evidence</th><th>decoded audit</th><th>output</th></tr><tr><td>42</td><td>x_axis_damped_out</td><td>24</td><td>24</td><td>50</td><td>PASS</td><td>2048x2048 / 24fps / 120f</td></tr><tr><td>98</td><td>x_axis_damped_out</td><td>24</td><td>24</td><td>48</td><td>PASS</td><td>2048x2048 / 24fps / 120f</td></tr></table>
+<h2>Contract</h2>
+<p>True and Counterfactual are produced by one declared operator applied once at a single intervention frame.
+Every decoded frame before the intervention frame is exactly equal. The mask contains only the visible pixels of the
+violating object and never a shadow. The physical time base, the solver steps per recorded frame and the
+internal time step are recorded in each case metadata.</p></main></html>
