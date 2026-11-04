@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>gyroscope_nutation_never_settles</title><style>body{font:16px/1.65 system-ui,-apple-system,sans-serif;color:#173045;background:#f3f5f7;margin:0}
+main{max-width:1180px;margin:auto;padding:26px}h1{font-size:26px;overflow-wrap:anywhere}h2{margin-top:34px}
+a{color:#0757b4}code{overflow-wrap:anywhere}section,article{background:#fff;border:1px solid #d6dde4;padding:18px;border-radius:12px;margin:18px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.vid{margin:0;min-width:0}video{width:100%;aspect-ratio:1;background:#000}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #ccd5df;padding:7px;text-align:left}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef1f4;padding:12px;border-radius:8px}
+.small{color:#5a6b7b;font-size:13px}.pill{display:inline-block;background:#e7f0ff;border-radius:999px;padding:2px 10px;margin:2px;font-size:13px}</style><main><h1>gyroscope_nutation_never_settles</h1>
+<p><span class="pill">generator gyroscope_nutation_never_settles</span><span class="pill">head 46e81657d1c29d09c8276fe6204ff78bb93ac635</span>
+<span class="pill">native 2048x2048 · 24 fps · 120 frames · 5 s · H.264</span><span class="pill">violating-object-only mask</span></p>
+<p><strong>Pull request</strong>: <a href="https://github.com/hipo-dev/counterfactual-data/pull/803">https://github.com/hipo-dev/counterfactual-data/pull/803</a> · <strong>commit</strong>: <code>46e81657d1c29d09c8276fe6204ff78bb93ac635</code></p>
+<p><strong>Operator</strong>: <code>nutation_damping_removed</code> · <strong>violating objects</strong>:
+<code>the flywheel and the arm that carries it</code> · <strong>scene params</strong>:
+<pre>{
+ &quot;appearance&quot;: 0,
+ &quot;arm_radius&quot;: 0.013,
+ &quot;axle_length&quot;: 0.175556,
+ &quot;camera_elevation_ratio&quot;: 0.3,
+ &quot;critical_spin_rate&quot;: 33.68888926256735,
+ &quot;damping_ratio&quot;: 0.175556,
+ &quot;gravity&quot;: 9.81,
+ &quot;hub_radius&quot;: 0.042,
+ &quot;inertia_axial&quot;: 0.017328955969889714,
+ &quot;inertia_transverse&quot;: 0.04866254053145942,
+ &quot;intervention_frame&quot;: 8,
+ &quot;marker_radius&quot;: 0.94,
+ &quot;model&quot;: &quot;Reduced symmetric-body model about a fixed pivot, authored per frame. The flywheel is a thin ring of mass M and radius R whose centre sits at the end of the arm, a distance l from the pivot, so its axial moment is I3 = M R^2 about the arm and its transverse moment about the pivot is I1 = M R^2 + M l^2. The arm is released horizontal, so the tilt theta measured from the vertical starts at theta0, with no precession rate and no nutation rate. Because the wheel spins about its own axle at the constant rate w3, the spin angular momentum about the arm is the constant p_psi = I3 w3, and the angular momentum about the vertical is the constant p_phi = p_psi cos(theta0). The precession rate follows from the two conserved momenta, phidot = (p_phi - p_psi cos theta) / (I1 sin^2 theta + I3 cos^2 theta), and the nutation equation is I1 thetadd = sin(theta) (I1 phidot^2 cos(theta) - p_psi phidot + M g l) - c_n thetadot. The first term is the gravity torque that pulls the arm down, the second is the gyroscopic term that turns that fall sideways into precession, and the last is the viscous damper in the pivot that takes energy out of the nutation swing; its ratio c_n / (2 I1 omega_n) to the nutation mode is the declared damping ratio of the pivot. The counterfactual sets c_n to zero from one declared frame onward: the pivot cup is still drawn and the arm still swings, but the nutation is no longer damped, so the arm never stops bobbing. The arm, the wheel and the damper are all in the recorded state; the drawn geometry follows the recorded state exactly. The model is an authored reduced state program; it is not a rigid-body simulator and does not claim to be one.&quot;,
+ &quot;nutation_damping&quot;: 0.278996212168402,
+ &quot;nutation_frequency&quot;: 16.328934837638617,
+ &quot;pivot_pin_radius&quot;: 0.008,
+ &quot;pivot_z&quot;: 0.3,
+ &quot;release_tilt&quot;: 1.5475252759194031,
+ &quot;release_tilt_deg&quot;: 88.666667,
+ &quot;solver_steps_per_frame&quot;: 240,
+ &quot;spin_margin&quot;: 1.361111,
+ &quot;spin_rate&quot;: 45.85431775306231,
+ &quot;stud_radius&quot;: 0.009,
+ &quot;time_scale&quot;: 0.4,
+ &quot;view&quot;: 0,
+ &quot;wheel_mass&quot;: 1.016667,
+ &quot;wheel_radius&quot;: 0.130556,
+ &quot;wheel_rim_width&quot;: 0.024,
+ &quot;wheel_thickness&quot;: 0.046
+}</pre>
+<p><strong>Timebase</strong>: physical seconds per video second <code>0.4</code>,
+physical dt <code>0.016666666666666666</code>, outer steps per recorded frame <code>1</code>,
+internal substeps <code>240</code>.</p>
+<h2>Rendered cases</h2><section><h3>Case 42</h3><div class="grid"><figure class="vid"><figcaption><strong>True</strong></figcaption><video id="v42-true" controls playsinline muted preload="metadata"><source src="media/42-true.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Counterfactual</strong></figcaption><video id="v42-counterfactual" controls playsinline muted preload="metadata"><source src="media/42-counterfactual.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Mask</strong></figcaption><video id="v42-mask" controls playsinline muted preload="metadata"><source src="media/42-mask.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Overlay</strong></figcaption><video id="v42-mask_overlay" controls playsinline muted preload="metadata"><source src="media/42-mask_overlay.mp4" type="video/mp4"></video><small>seed 42</small></figure></div>
+<p><strong>True prompt</strong><br>A heavy flywheel on one end of a rigid arm is held at its other end by a pivot cup on top of a pedestal, and the wheel is spun up about its own axle. The arm is released horizontal and the wheel swings slowly around the pedestal while the arm first bobs up and down. The bobbing then dies away: the arm settles at one fixed tilt and the wheel keeps precessing around the pedestal at a steady rate with the arm held level.</p>
+<p><strong>Counterfactual prompt</strong><br>A heavy flywheel on one end of a rigid arm is held at its other end by a pivot cup on top of a pedestal, and the wheel is spun up about its own axle. The arm is released horizontal and the wheel swings slowly around the pedestal, but the arm keeps bobbing up and down for the whole clip: it never stops rising and falling, and the gyroscope never settles into a steady precession.</p>
+<p class="small">decoded audit: first changed frame 9, mask start 9,
+evidence frame 44, exact prefix True, strict binary mask True,
+overlay matches counterfactual outside the mask True.</p></section><section><h3>Case 98</h3><div class="grid"><figure class="vid"><figcaption><strong>True</strong></figcaption><video id="v98-true" controls playsinline muted preload="metadata"><source src="media/98-true.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Counterfactual</strong></figcaption><video id="v98-counterfactual" controls playsinline muted preload="metadata"><source src="media/98-counterfactual.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Mask</strong></figcaption><video id="v98-mask" controls playsinline muted preload="metadata"><source src="media/98-mask.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Overlay</strong></figcaption><video id="v98-mask_overlay" controls playsinline muted preload="metadata"><source src="media/98-mask_overlay.mp4" type="video/mp4"></video><small>seed 98</small></figure></div>
+<p><strong>True prompt</strong><br>A heavy flywheel on one end of a rigid arm is held at its other end by a pivot cup on top of a pedestal, and the wheel is spun up about its own axle. The arm is released horizontal and the wheel swings slowly around the pedestal while the arm first bobs up and down. The bobbing then dies away: the arm settles at one fixed tilt and the wheel keeps precessing around the pedestal at a steady rate with the arm held level.</p>
+<p><strong>Counterfactual prompt</strong><br>A heavy flywheel on one end of a rigid arm is held at its other end by a pivot cup on top of a pedestal, and the wheel is spun up about its own axle. The arm is released horizontal and the wheel swings slowly around the pedestal, but the arm keeps bobbing up and down for the whole clip: it never stops rising and falling, and the gyroscope never settles into a steady precession.</p>
+<p class="small">decoded audit: first changed frame 9, mask start 9,
+evidence frame 52, exact prefix True, strict binary mask True,
+overlay matches counterfactual outside the mask True.</p></section>
+<h2>Case summary</h2><table><tr><th>seed</th><th>operator</th><th>first changed</th><th>mask start</th><th>evidence</th><th>decoded audit</th><th>output</th></tr><tr><td>42</td><td>nutation_damping_removed</td><td>9</td><td>9</td><td>44</td><td>PASS</td><td>2048x2048 / 24fps / 120f</td></tr><tr><td>98</td><td>nutation_damping_removed</td><td>9</td><td>9</td><td>52</td><td>PASS</td><td>2048x2048 / 24fps / 120f</td></tr></table>
+<h2>Contract</h2>
+<p>True and Counterfactual are produced by one declared operator applied once at a single intervention frame.
+Every decoded frame before the intervention frame is exactly equal. The mask contains only the visible pixels of the
+violating object and never a shadow. The physical time base, the solver steps per recorded frame and the
+internal time step are recorded in each case metadata.</p></main></html>
