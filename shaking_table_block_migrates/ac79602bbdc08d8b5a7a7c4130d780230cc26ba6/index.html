@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>shaking_table_block_migrates</title><style>body{font:16px/1.65 system-ui,-apple-system,sans-serif;color:#173045;background:#f3f5f7;margin:0}
+main{max-width:1180px;margin:auto;padding:26px}h1{font-size:26px;overflow-wrap:anywhere}h2{margin-top:34px}
+a{color:#0757b4}code{overflow-wrap:anywhere}section,article{background:#fff;border:1px solid #d6dde4;padding:18px;border-radius:12px;margin:18px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.vid{margin:0;min-width:0}video{width:100%;aspect-ratio:1;background:#000}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #ccd5df;padding:7px;text-align:left}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef1f4;padding:12px;border-radius:8px}
+.small{color:#5a6b7b;font-size:13px}.good{color:#18623d}.pill{display:inline-block;background:#e7f0ff;border-radius:999px;padding:2px 10px;margin:2px;font-size:13px}</style><main><h1>shaking_table_block_migrates</h1>
+<p><span class="pill">generator shaking_table_block_migrates</span><span class="pill">head ac79602bbdc08d8b5a7a7c4130d780230cc26ba6</span>
+<span class="pill">native 2048x2048 · 24 fps · 120 frames · 5 s · H.264</span><span class="pill">violating-object-only mask</span></p>
+<p><strong>Pull request</strong>: <a href="https://github.com/hipo-dev/counterfactual-data/pull/802">https://github.com/hipo-dev/counterfactual-data/pull/802</a> · <strong>commit</strong>: <code>ac79602bbdc08d8b5a7a7c4130d780230cc26ba6</code></p>
+<p><strong>Operator</strong>: <code>grip_never_gives_way</code> · <strong>scene params</strong>:
+<pre>{
+ &quot;appearance&quot;: 0,
+ &quot;block_length&quot;: 0.12,
+ &quot;camera_elevation_ratio&quot;: 0.52,
+ &quot;drive_frequency&quot;: 1.978889,
+ &quot;gravity&quot;: 9.81,
+ &quot;grip_coefficient&quot;: 0.32,
+ &quot;grip_held&quot;: 3.0,
+ &quot;intervention_frame&quot;: 9,
+ &quot;model&quot;: &quot;Reduced sliding-block model, authored per frame.  The table is driven by a Scotch yoke, so its position is exactly X(t) = X0 + R cos(w t) and its acceleration is X&#x27;&#x27; = -R w^2 cos(w t).  The block is a point mass that slides along the table; its own rotation is not modelled.  The block&#x27;s contact with the table obeys Coulomb friction with a static and a kinetic coefficient.  While the block is at rest it sticks as long as the table&#x27;s acceleration stays below the static grip, |X&#x27;&#x27;| &lt;= mus g.  When the peak acceleration exceeds that grip the block breaks loose and slides with x&#x27;&#x27; = -X&#x27;&#x27; - muk g sign(x&#x27;).  Because the kinetic friction is smaller than the static friction the block does not slide back on the following half stroke, so it keeps a net step in one direction and creeps along the table.  The counterfactual changes the grip event: in the factual branch the static grip falls to the sampled value at one declared frame near the start of the clip, and in the counterfactual branch the grip never falls, so the table&#x27;s shaking can never break the block loose and the block never moves.  The model is an authored reduced state program; it is not a contact solver and does not claim to be one.&quot;,
+ &quot;slide_friction&quot;: 0.193333,
+ &quot;solver_steps_per_frame&quot;: 400,
+ &quot;stroke_radius&quot;: 0.049333,
+ &quot;table_height&quot;: 0.26,
+ &quot;table_length&quot;: 1.038889,
+ &quot;table_width&quot;: 0.22,
+ &quot;time_scale&quot;: 1.0,
+ &quot;view&quot;: 0,
+ &quot;yoke_centre_x&quot;: 0.3,
+ &quot;yoke_centre_z&quot;: 0.15,
+ &quot;yoke_radius&quot;: 0.049333
+}</pre></p>
+<h2>Rendered cases</h2><section><h3>Case 42</h3><div class="grid"><figure class="vid"><figcaption><strong>True</strong></figcaption><video id="v42-true" controls playsinline muted preload="metadata"><source src="media/42-true.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Counterfactual</strong></figcaption><video id="v42-counterfactual" controls playsinline muted preload="metadata" poster="poster-42.png"><source src="media/42-counterfactual.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Mask</strong></figcaption><video id="v42-mask" controls playsinline muted preload="metadata"><source src="media/42-mask.mp4" type="video/mp4"></video><small>seed 42</small></figure><figure class="vid"><figcaption><strong>Overlay</strong></figcaption><video id="v42-mask_overlay" controls playsinline muted preload="metadata"><source src="media/42-mask_overlay.mp4" type="video/mp4"></video><small>seed 42</small></figure></div>
+<p><strong>True prompt</strong><br>A small block rests on a long table that is driven back and forth by a rotating yoke. The block&#x27;s grip gives way right at the start of the clip, and from then on every stroke of the drive breaks it loose again, so the block slides on the table and slowly works its way along it.</p>
+<p><strong>Counterfactual prompt</strong><br>A small block rests on a long table that is driven back and forth by a rotating yoke. The block&#x27;s grip never gives way: it stays gripped to the table for the whole clip, never sliding and never changing its place on the table.</p>
+<p class="small">decoded audit: first changed frame 9, mask start 9,
+evidence frame 9, exact prefix True, strict binary mask True,
+overlay matches counterfactual outside the mask True.</p></section><section><h3>Case 98</h3><div class="grid"><figure class="vid"><figcaption><strong>True</strong></figcaption><video id="v98-true" controls playsinline muted preload="metadata"><source src="media/98-true.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Counterfactual</strong></figcaption><video id="v98-counterfactual" controls playsinline muted preload="metadata" poster="poster-98.png"><source src="media/98-counterfactual.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Mask</strong></figcaption><video id="v98-mask" controls playsinline muted preload="metadata"><source src="media/98-mask.mp4" type="video/mp4"></video><small>seed 98</small></figure><figure class="vid"><figcaption><strong>Overlay</strong></figcaption><video id="v98-mask_overlay" controls playsinline muted preload="metadata"><source src="media/98-mask_overlay.mp4" type="video/mp4"></video><small>seed 98</small></figure></div>
+<p><strong>True prompt</strong><br>A small block rests on a long table that is driven back and forth by a rotating yoke. The block&#x27;s grip gives way right at the start of the clip, and from then on every stroke of the drive breaks it loose again, so the block slides on the table and slowly works its way along it.</p>
+<p><strong>Counterfactual prompt</strong><br>A small block rests on a long table that is driven back and forth by a rotating yoke. The block&#x27;s grip never gives way: it stays gripped to the table for the whole clip, never sliding and never changing its place on the table.</p>
+<p class="small">decoded audit: first changed frame 9, mask start 9,
+evidence frame 9, exact prefix True, strict binary mask True,
+overlay matches counterfactual outside the mask True.</p></section>
+<h2>Case summary</h2><table><tr><th>seed</th><th>operator</th><th>first changed</th><th>mask start</th><th>evidence</th><th>decoded audit</th><th>output</th></tr><tr><td>42</td><td>grip_never_gives_way</td><td>9</td><td>9</td><td>9</td><td>PASS</td><td>2048x2048 / 24fps / 120f</td></tr><tr><td>98</td><td>grip_never_gives_way</td><td>9</td><td>9</td><td>9</td><td>PASS</td><td>2048x2048 / 24fps / 120f</td></tr></table>
+<h2>Contract</h2>
+<p class="small">The four streams shown are the 1024-pixel browser copies of the native 2048x2048 render, so the page
+loads quickly and every video plays in a normal browser. The native 2048x2048 files and their SHA-256 inventory are
+recorded in the case manifest and in the runtime witness, and the decoded audit below was run on the native files.</p>
+<p>True and Counterfactual are produced by one declared operator applied once at a single intervention frame.
+Every decoded frame before the intervention frame is exactly equal. The mask contains only the visible pixels of the
+violating object and never a shadow. Physical time equals video time; the solver steps per recorded frame and the
+internal time step are recorded in each case metadata.</p></main></html>
